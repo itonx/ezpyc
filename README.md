@@ -1,0 +1,2 @@
+# ezpyc
+Easy Python Commands
