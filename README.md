@@ -1,4 +1,6 @@
-# <div style="text-align: center;"><img width="250px" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/bash.png" alt="bash" title="bash"/><span style="display: block;">ezpyc</span></div>
+<div style="text-align: center;"><img width="250px" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/bash.png" alt="bash" title="bash"/></div>
+
+# ezpyc
 
 Easy Python Commands allows you to execute your python scripts as if they were system commands.
 
@@ -6,6 +8,8 @@ Without ezpyc:
 
 ```bash
 python mycommand.py
+# or
+python C:\Users\wintermute\dev\mycommand.py
 ```
 
 With ezpyc:
@@ -106,12 +110,10 @@ Magic happends once you place your scripts at `%USERPROFILE%\.ezpyc`.
 └───mycommand.py
 ```
 
-Open a terminal and run the command using the name of your script:
+Open a terminal and run the command using the name of your script (no need to type the full path or restart the terminal if you add new scripts):
 
 ```bash
 mycommand
 ```
-
-No need to restart your terminal if you add new scripts to the `.ezpyc` folder.
 
 If you want to know how to process command line arguments with `click` see `hworld` built-in script or review `click` documentation: https://click.palletsprojects.com/en/stable/.
