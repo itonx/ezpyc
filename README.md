@@ -1,6 +1,8 @@
-<div style="text-align: center;"><img width="250px" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/bash.png" alt="bash" title="bash"/></div>
+<p align="center">
+  <img width="250px" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/bash.png" alt="bash" title="bash"/>
+</p>
 
-# ezpyc
+# <div align="center">ezpyc</div>
 
 Easy Python Commands allows you to execute your python scripts as if they were system commands.
 
