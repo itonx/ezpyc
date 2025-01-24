@@ -161,3 +161,5 @@ Output:
 └─ ...
 ▒ ezpyc's been uninstalled. C:\Users\user1\.ezpyc needs to be deleted manually, don't forget to backup your scripts.
 ```
+
+> NOTE: Commands will be available until you restart your terminal or open a new one.
