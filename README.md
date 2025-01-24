@@ -28,7 +28,7 @@ mycommand
 
 # 🖥️ How to install
 
-Clone repo and run `python setup.py` as administrator:
+Clone repo and run `python setup.py install` as administrator:
 
 ```bash
 git clone https://github.com/itonx/ezpyc
@@ -39,7 +39,7 @@ cd ezpyc
 ```
 
 ```bash
-python setup.py
+python setup.py install
 ```
 
 Output:
@@ -119,3 +119,45 @@ mycommand
 ```
 
 If you want to know how to process command line arguments with `click` see `hworld` built-in script or review `click` documentation: https://click.palletsprojects.com/en/stable/.
+
+# 🖥️ How to uninstall
+
+## Option 1: `setup.py`
+
+Clone repo and run `python setup.py uninstall` as administrator:
+
+```bash
+git clone https://github.com/itonx/ezpyc
+```
+
+```bash
+cd ezpyc
+```
+
+```bash
+python setup.py uninstall
+```
+
+Output:
+
+```
+└─ ...
+▒ ezpyc's been uninstalled. C:\Users\user1\.ezpyc needs to be deleted manually, don't forget to backup your scripts.
+```
+
+## Method 2: built-in `ezpyc` command
+
+This will work only if you kept built-in ezpyc scripts.
+
+Run as administrator:
+
+```bash
+ezpyc uninstall
+```
+
+Output:
+
+```
+└─ ...
+▒ ezpyc's been uninstalled. C:\Users\user1\.ezpyc needs to be deleted manually, don't forget to backup your scripts.
+```

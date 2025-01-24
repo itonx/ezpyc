@@ -10,14 +10,22 @@ def cli() -> None:
     """ezpyc command line."""
     pass
 
-@ezpyc_group_command(cli, 'fix-runner')
+@ezpyc_group_command(cli, 'fix')
 @os_support(allowed_os=[SupportedOS.WINDOWS])
-def fix_ezpyc_runner() -> None:
-    """Fix ezpyc runner"""
-    ezpyc.install(output_msg='Fixing ezpyc runner...')
-    output(f'Ezpyc runner fixed. Create a new python script at {ezpyc.EZPYC_FULL_PATH_DIR} and try to run it. If you cannot execute it, restart your terminal or open a new one.', OutputType.HEADER)
+def fix_ezpyc() -> None:
+    """Fix ezpyc"""
+    ezpyc.install(output_msg='Fixing ezpyc...')
+    output(f'Ezpyc fixed. Create a new python script at {ezpyc.EZPYC_FULL_PATH_DIR} and try to run it. If you cannot execute it, restart your terminal or open a new one.', OutputType.HEADER)
 
-cli.add_command(fix_ezpyc_runner)
+@ezpyc_group_command(cli, 'uninstall')
+@os_support(allowed_os=[SupportedOS.WINDOWS])
+def uninstall() -> None:
+    """Uninstall ezpyc"""
+    ezpyc.uninstall()
+
+
+cli.add_command(fix_ezpyc)
+cli.add_command(uninstall)
 
 if __name__ == '__main__':
     cli()

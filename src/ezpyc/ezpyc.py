@@ -3,7 +3,7 @@ from click import Command, Group, group
 from os import path
 
 from .file import copy_files_ext
-from .env_variable import EnvVariableType, add_env_variable_value
+from .env_variable import EnvVariableType, add_env_variable_value, remove_env_variable_value
 from .folder import create_folder_if_needed
 from .output import output, OutputType
 
@@ -38,3 +38,9 @@ class EzPyC:
         create_folder_if_needed(self.EZPYC_LIB_FULL_PATH_DIR)
         copy_files_ext(src_path_scripts_lib, self.EZPYC_LIB_FULL_PATH_DIR, '.py')
         copy_files_ext(src_path_scripts, self.EZPYC_FULL_PATH_DIR, '.py')
+
+    def uninstall(self, output_msg = 'Uninstalling ezpyc...') -> None:
+        output(output_msg, OutputType.HEADER)
+        remove_env_variable_value(self.PATHEXT, self.PYTHON_EXTENSION, EnvVariableType.SYSTEM)
+        remove_env_variable_value(self.PATH, self.EZPYC_FULL_PATH_DIR, EnvVariableType.CURRENT_USER)
+        output(f'ezpyc\'s been uninstalled. {self.EZPYC_FULL_PATH_DIR} needs to be deleted manually, don\'t forget to backup your scripts.', OutputType.HEADER)
