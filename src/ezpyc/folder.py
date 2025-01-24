@@ -18,3 +18,6 @@ def create_folder_if_needed(full_path_dir: str) -> None:
             exit(1)
     else:
         output('{0} found'.format(full_path_dir))
+
+def abspathjoin(file: str, *paths) -> str:
+    return path.join(path.abspath(path.dirname(file)), *paths)

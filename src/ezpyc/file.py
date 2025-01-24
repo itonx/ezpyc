@@ -1,3 +1,6 @@
+from os import listdir, path
+from pathlib import Path
+
 from .output import OutputType, output
 
 def copy_file(src: str, dest: str) -> None:
@@ -9,4 +12,15 @@ def copy_file(src: str, dest: str) -> None:
         output('{0} copied to {1}'.format(src, dest))
     except FileNotFoundError as e:
         output('Error copying file: {0}'.format(e))
+        exit(1)
+
+def copy_files_ext(source_dir: str, target_dir: str, ext: str) -> None:
+    output(f'Copying {ext} files', OutputType.HEADER)
+    try:
+        files = listdir(source_dir)
+        for file in files:
+            if file.lower().endswith(ext):
+                copy_file(path.join(source_dir, file), path.join(target_dir, file))
+    except FileNotFoundError as e:
+        output('Error copying files ext: {0}'.format(e))
         exit(1)
