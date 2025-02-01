@@ -1,36 +1,20 @@
-from os import path
-from src.ezpyc.os_decorators import os_support, SupportedOS
-from src.ezpyc.ezpyc import EzPyC, ezpyc_group, ezpyc_group_command
-from src.ezpyc.folder import abspathjoin
-from src.ezpyc.output import OutputType, output
+from setuptools import setup, find_packages
 
-ezpyc = EzPyC()
-
-@ezpyc_group()
-def cli() -> None:
-    """ezpyc command line."""
-    pass
-
-def output_done() -> None:
-    output('Setup done!', OutputType.HEADER)
-    output('Try \'hworld\' or \'hworld -h\' command. If you cannot execute it, restart your terminal or open a new one.')
-
-@ezpyc_group_command(cli, 'install')
-@os_support(allowed_os=[SupportedOS.WINDOWS])
-def install() -> None:
-    """Install ezpyc"""
-    ezpyc.install()
-    ezpyc.add_ezpyc_scripts(src_path_scripts=abspathjoin(__file__, 'src'), src_path_scripts_lib=abspathjoin(__file__, 'src', 'ezpyc'))
-    output_done()
-
-@ezpyc_group_command(cli, 'uninstall')
-@os_support(allowed_os=[SupportedOS.WINDOWS])
-def uninstall() -> None:
-    """Uninstall ezpyc"""
-    ezpyc.uninstall()
-
-cli.add_command(install)
-cli.add_command(uninstall)
-
-if(__name__ == '__main__'):
-    cli()
+setup(
+    name="ezpyc",
+    version="0.1.0",
+    author="Icebreaker",
+    author_email="ayrton.94.e@gmail.com",
+    description="Easy Python Commands",
+    long_description=open("README.md", encoding='utf8').read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/itonx/ezpyc",
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires=">=3.11"
+)

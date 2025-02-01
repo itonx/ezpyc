@@ -1,30 +1,37 @@
-from ezpyc.os_decorators import os_support, SupportedOS
-from ezpyc.ezpyc import ezpyc_group_command, ezpyc_group
-from ezpyc.output import OutputType, output
-from ezpyc.ezpyc import EzPyC
+from click import option
 
-ezpyc = EzPyC()
+from ezpyc.os_decorators import os_support, OSType
+from ezpyc.command_decorators import ezpyc_group_command, ezpyc_group
+from ezpyc.installation_wizard import EzpycInstaller
+from ezpyc.folder import abspathjoin
+
+ezpyc_installer = EzpycInstaller()
 
 @ezpyc_group()
 def cli() -> None:
     """ezpyc command line."""
     pass
 
+@ezpyc_group_command(cli, 'install')
+@os_support(allowed_os=[OSType.WINDOWS])
+def install() -> None:
+    """Install ezpyc files and environment variables."""
+    ezpyc_installer.install(abspathjoin(__file__))
+
 @ezpyc_group_command(cli, 'fix')
-@os_support(allowed_os=[SupportedOS.WINDOWS])
-def fix_ezpyc() -> None:
-    """Fix ezpyc"""
-    ezpyc.install(output_msg='Fixing ezpyc...')
-    output(f'Ezpyc fixed. Create a new python script at {ezpyc.EZPYC_FULL_PATH_DIR} and try to run it. If you cannot execute it, restart your terminal or open a new one.', OutputType.HEADER)
+@os_support(allowed_os=[OSType.WINDOWS])
+def fix() -> None:
+    """Fix ezpyc environment variables."""
+    ezpyc_installer.install(abspathjoin(__file__))
 
 @ezpyc_group_command(cli, 'uninstall')
-@os_support(allowed_os=[SupportedOS.WINDOWS])
+@os_support(allowed_os=[OSType.WINDOWS])
 def uninstall() -> None:
-    """Uninstall ezpyc"""
-    ezpyc.uninstall()
+    """Uninstall ezpyc environment variables"""
+    ezpyc_installer.uninstall()
 
-
-cli.add_command(fix_ezpyc)
+cli.add_command(install)
+cli.add_command(fix)
 cli.add_command(uninstall)
 
 if __name__ == '__main__':

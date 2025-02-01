@@ -25,13 +25,13 @@ mycommand
 
 # ✅ Requirements
 
-- Python >=3.11.2
+- Python >=3.11
   - Add python.exe to PATH
 - Windows >=10
 
-# 🖥️ How to install
+# 🖥️ How to install ezpyc for Windows
 
-Clone repo and run `python setup.py install` as administrator:
+Clone repo and run `python src/ezpyc.py install` as administrator:
 
 ```bash
 git clone https://github.com/itonx/ezpyc
@@ -42,18 +42,17 @@ cd ezpyc
 ```
 
 ```bash
-python setup.py install
+python src/ezpyc.py install
 ```
 
 Output:
 
 ```
 └─ ...
-▒ Setup done!
-└─ Try 'hworld' or 'hworld -h' command. If you cannot execute it, restart your terminal or open a new one.
+▒ Setup done. Create a new python script at C:\Users\ayrto\.ezpyc and try to run it. If you cannot execute it, restart your terminal or open a new one.
 ```
 
-Once the installation's done you'll be able to execute your python scripts as if they were simple windows commands. All scripts must be added to `%USERPROFILE%\.ezpyc`.
+Once the installation's done you'll be able to execute your python scripts as if they were simple windows commands. All scripts must be added to `%USERPROFILE%\.ezpyc` if don't want to type the full path of your scripts.
 
 ## Installation details
 
@@ -69,34 +68,26 @@ The installation will make the next changes on your system:
 ```bash
 %USERPROFILE%\.ezpyc
 │   ezpyc.py
-│   homec.py
-│   hworld.py
-│   pwdc.py
-│
 └───ezpyc
+    __init__.py
     clipboard.py
+    command_decorators.py
     env_variable.py
-    ezpyc.py
     file.py
     folder.py
+    installation_wizard.py
     os_decorators.py
     output.py
-    __init__.py
 ```
 
 ### Details:
 
 Built-in scripts are created to help you getting started with your own python script commands. All scripts use `click` to manage command line arguments. `hworld` is the simplest script, you might want to follow its structure to create simple scripts/commands. The rest of built-in files are a simple abstraction of `click`, you could follow their structure to create your own abstraction for complex scripts/commands with your own python packages.
 
-- `%USERPROFILE%\.ezpyc\ezpyc` is a python package which contains shared code for `ezpyc`, `homec`, and `pwdc` commands. `hworld` doesn't depend on ezpyc shared code.
-- `ezpyc` manages your ezpyc installation
-- `homec` prints home dir and copy it to clipboard
-- `hworld` prints a simple hello world message
-- `pwdc` prints current working dir and copy it to clipboard
+- `%USERPROFILE%\.ezpyc\ezpyc` is a python package which contains shared code for `ezpyc.py`.
+- `ezpyc.py` manages your ezpyc installation
 
-All commands accept `-h` and `--help` args.
-
-> NOTE: Feel free to delete built-in ezpyc files if you don't use them.
+`ezpyc` command accepts `-h` and `--help` args.
 
 # ⚒️ Create your first script/command
 
@@ -115,19 +106,19 @@ Magic happends once you place your scripts at `%USERPROFILE%\.ezpyc`.
 └───mycommand.py
 ```
 
-Open a terminal and run the command using the name of your script (no need to type the full path or restart the terminal if you add new scripts):
+Open a terminal and run the command using the name of your script (no need to type the full path or restart the terminal if you add new scripts to `.ezpyc` folder):
 
 ```bash
 mycommand
 ```
 
-If you want to know how to process command line arguments with `click` see `hworld` built-in script or review `click` documentation: https://click.palletsprojects.com/en/stable/.
+If you want to know how to process command line arguments with `click` see documentation: https://click.palletsprojects.com/en/stable/.
 
 # 🖥️ How to uninstall
 
-## Option 1: `setup.py`
+## Option 1: `ezpyc_installer.py`
 
-Clone repo and run `python setup.py uninstall` as administrator:
+Clone repo and run `python src/ezpyc.py uninstall` as administrator:
 
 ```bash
 git clone https://github.com/itonx/ezpyc
@@ -138,19 +129,19 @@ cd ezpyc
 ```
 
 ```bash
-python setup.py uninstall
+python src/ezpyc.py uninstall
 ```
 
 Output:
 
 ```
 └─ ...
-▒ ezpyc's been uninstalled. C:\Users\user1\.ezpyc needs to be deleted manually, don't forget to backup your scripts.
+▒ ezpyc's been uninstalled. C:\Users\wintermute\.ezpyc needs to be deleted manually, don't forget to backup your scripts.
 ```
 
 ## Method 2: built-in `ezpyc` command
 
-This will work only if you kept built-in ezpyc scripts.
+This will work only if you installed ezpyc.
 
 Run as administrator:
 
@@ -162,7 +153,7 @@ Output:
 
 ```
 └─ ...
-▒ ezpyc's been uninstalled. C:\Users\user1\.ezpyc needs to be deleted manually, don't forget to backup your scripts.
+▒ ezpyc's been uninstalled. C:\Users\wintermute\.ezpyc needs to be deleted manually, don't forget to backup your scripts.
 ```
 
 > NOTE: Commands will be available until you restart your terminal or open a new one.
