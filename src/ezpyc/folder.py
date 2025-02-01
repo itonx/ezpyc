@@ -21,3 +21,5 @@ def create_folder_if_needed(full_path_dir: str) -> None:
 
 def abspathjoin(file: str, *paths) -> str:
     return path.join(path.abspath(path.dirname(file)), *paths)
+
+__all__ = ['create_folder_if_needed', 'abspathjoin']

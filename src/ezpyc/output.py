@@ -9,3 +9,5 @@ def output(text: str, output_type: OutputType = OutputType.INFO) -> None:
         print('▒ {0}'.format(text))
     else:
         print('└─ {0}'.format(text))
+
+__all__ = ['output', 'OutputType']

@@ -3,12 +3,12 @@ from platform import system as getos
 from functools import wraps
 from typing import Any
 
-class SupportedOS(Enum):
+class OSType(Enum):
     WINDOWS = 'windows'
     LINUX = 'linux'
     MAC = 'darwin'
 
-def os_support(allowed_os: list[SupportedOS]) -> Any:
+def os_support(allowed_os: list[OSType]) -> Any:
     """Decorator to restrict a command to specific OS."""
     supported_os = [supported_os.name.lower() for supported_os in allowed_os]
     supported_os_joined = ", ".join(supported_os).title()
@@ -30,3 +30,5 @@ def os_support(allowed_os: list[SupportedOS]) -> Any:
         return wrapper
     
     return decorator
+
+__all__ = ['os_support', 'OSType']
