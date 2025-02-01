@@ -2,7 +2,7 @@
   <img width="250px" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/bash.png" alt="bash" title="bash"/>
 </p>
 <p align="center">
-  <a href="https://github.com/itonx/ezpyc/releases" target="_blank"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/itonx/ezpyc"/></a>
+<img alt="GitHub Release" src="https://img.shields.io/github/v/release/itonx/ezpyc">
 </p>
 
 # <div align="center">ezpyc</div>
