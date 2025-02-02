@@ -45,7 +45,7 @@ class EzpycInstaller:
             if(path.isfile(file_dir_path)):
                 self._add_python_script_to_ezpyc(file_dir_path)
             elif(path.isdir(file_dir_path)):
-                for full_file_path in get_files_from_dir_by_ext(file_dir_path, self.PYTHON_EXTENSION):
+                for full_file_path in get_files_from_dir_by_ext(file_dir_path, self.PYTHON_EXTENSION, ['__init__.py']):
                     self._add_python_script_to_ezpyc(full_file_path)
 
     def _add_scripts(self, commands_path):

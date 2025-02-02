@@ -35,7 +35,7 @@ def get_filename_without_extension(__file_path: str) -> str:
 def get_full_file_path(__file_path: str) -> str:
     return abspathjoin(__file_path, get_filename(__file_path))
 
-def get_files_from_dir_by_ext(source_dir: str, extension: str, skip_init: bool = True) -> list[str]:
-    return [path.join(source_dir, file) for file in listdir(source_dir) if str(file).lower().endswith(extension.lower()) and not str(file).__contains__('__init__')]
+def get_files_from_dir_by_ext(source_dir: str, extension: str, file_exceptions: list[str]) -> list[str]:
+    return [path.join(source_dir, file) for file in listdir(source_dir) if str(file).lower().endswith(extension.lower()) and get_filename(str(file)) not in file_exceptions]
 
 __all__ = ['copy_file', 'copy_files_by_ext', 'get_filename', 'get_filename_without_extension', 'get_full_file_path', 'get_files_from_dir_by_ext']
