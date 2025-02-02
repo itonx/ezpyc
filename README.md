@@ -82,8 +82,6 @@ The installation will make the next changes on your system:
 
 ### Details:
 
-Built-in scripts are created to help you getting started with your own python script commands. All scripts use `click` to manage command line arguments. `hworld` is the simplest script, you might want to follow its structure to create simple scripts/commands. The rest of built-in files are a simple abstraction of `click`, you could follow their structure to create your own abstraction for complex scripts/commands with your own python packages.
-
 - `%USERPROFILE%\.ezpyc\ezpyc` is a python package which contains shared code for `ezpyc.py`.
 - `ezpyc.py` manages your ezpyc installation
 
