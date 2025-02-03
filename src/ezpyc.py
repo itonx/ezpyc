@@ -34,13 +34,21 @@ def uninstall() -> None:
 @argument('paths', nargs=-1, type=Path(exists=True), required=True)
 @os_support(allowed_os=[OSType.WINDOWS])
 def link(paths: tuple[str, ...]) -> None:
-    """Create soft links in ~\.ezpyc folder for all python scripts found in 'paths'."""
+    """Create python script links in ~\.ezpyc for all python scripts found in 'paths'."""
     ezpyc_installer.link_scripts(paths)
+
+@ezpyc_group_command(cli, 'unlink')
+@argument('paths', nargs=-1, type=Path(exists=True), required=True)
+@os_support(allowed_os=[OSType.WINDOWS])
+def unlink(paths: tuple[str, ...]) -> None:
+    """Delete python scripts from ~\.ezpyc for all python scripts found in 'paths'."""
+    ezpyc_installer.unlink_scripts(paths)    
 
 cli.add_command(install)
 cli.add_command(fix)
 cli.add_command(uninstall)
 cli.add_command(link)
+cli.add_command(unlink)
 
 if __name__ == '__main__':
     cli()

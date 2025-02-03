@@ -49,7 +49,7 @@ Output:
 
 ```
 └─ ...
-▒ Setup done. Create a new python script at C:\Users\ayrto\.ezpyc and try to run it. If you cannot execute it, restart your terminal or open a new one.
+▒ Setup done. Create a new python script at C:\Users\wintermute\.ezpyc and try to run it. If you cannot execute it, restart your terminal or open a new one.
 ```
 
 Once the installation's done you'll be able to execute your python scripts as if they were simple windows commands. All scripts must be added to `%USERPROFILE%\.ezpyc` if don't want to type the full path of your scripts.
