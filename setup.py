@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ezpyc",
-    version="0.1.2",
+    version="0.1.3",
     author="Icebreaker",
     author_email="ayrton.94.e@gmail.com",
     description="Easy Python Commands",
