@@ -155,3 +155,12 @@ Output:
 ```
 
 > NOTE: Commands will be available until you restart your terminal or open a new one.
+
+# New release
+
+Create a new tag and push.
+
+```bash
+git tag vX.X.X
+git push origin --tags
+```
