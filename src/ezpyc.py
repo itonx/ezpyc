@@ -44,11 +44,18 @@ def unlink(paths: tuple[str, ...]) -> None:
     """Delete python scripts from ~\.ezpyc for all python scripts found in 'paths'."""
     ezpyc_installer.unlink_scripts(paths)    
 
+@ezpyc_group_command(cli, 'open')
+@os_support(allowed_os=[OSType.WINDOWS])
+def open() -> None:
+    """Open ezpyc folder (~\.ezpyc) with file explorer."""
+    ezpyc_installer.open_ezpyc_home_folder()    
+
 cli.add_command(install)
 cli.add_command(fix)
 cli.add_command(uninstall)
 cli.add_command(link)
 cli.add_command(unlink)
+cli.add_command(open)
 
 if __name__ == '__main__':
     cli()

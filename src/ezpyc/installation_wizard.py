@@ -1,4 +1,4 @@
-from os import path, remove
+from os import path, remove, startfile
 
 from .file import copy_files_by_ext, get_filename, get_full_file_path, get_files_from_dir_by_ext
 from .env_variable import EnvType, add_env_variable_value, remove_env_variable_value
@@ -61,6 +61,9 @@ class EzpycInstaller:
                     else:
                         output(f'{get_filename(full_file_path)} not found in ~\.ezpyc')
 
+    def open_ezpyc_home_folder(self) -> None:
+        startfile(self.EZPYC_FULL_PATH_DIR)
+
     def _add_scripts(self, commands_path):
         if(commands_path == self.EZPYC_FULL_PATH_DIR):
             output('Warning: ezpyc files detected. Skiping files...')
@@ -99,5 +102,5 @@ system('{{0}} {{1}}'.format(script_path, ' '.join(argv[1:])))
                     file_found = full_file_path_ezpyc
                     output(f'{full_file_path} unlinked. [Deleted] {full_file_path_ezpyc}')
         remove(file_found) if file_found else output(f'[Failed] {file_path} not found in {full_file_path_ezpyc} content')
-
+        
 __all__ = ['EzpycInstaller']        
